@@ -7,6 +7,8 @@ import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -15,6 +17,7 @@ import javafx.scene.control.Label;
 
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -124,7 +127,24 @@ public class HelloController implements Initializable {
                 botoesPlayer[c][d].hoverProperty().addListener((observableValue, number, t1) -> mouseOverPlayer(botoesPlayer[finalC][finalD],finalC,finalD));
             }
         }
+
+        for (int e=0;e<10;e++){
+            for (int f=0;f<10;f++){
+
+                int finalE=e;
+                int finalD=f;
+                botoesPlayer[finalE][finalD].setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        colocar(botoesPlayer[finalE][finalD],finalE,finalD);
+                    }
+                });
+            }
+        }
     }
+
+
 //RELOGIO INICIO
     private void incrementTime() {
         time = time.plusSeconds(1);
@@ -158,7 +178,7 @@ public class HelloController implements Initializable {
 //BANDEIRA marcador de possivel inimigo
     public void bandeira(MouseEvent butao) {
         e11.setStyle("-fx-background-color: rgba(0,0,0,0)");
-        System.out.println(e11.getStyle());
+
         if (e11.getText().equals("") && butao.getButton() == MouseButton.SECONDARY) {
             e11.setText("?");
         } else {
@@ -206,7 +226,7 @@ public class HelloController implements Initializable {
 //Fim do tratamento da seleção e coloraçao dos barcos
 
 
-//COLOCACAO de barcos
+//Previsualização de colocação de barcos
     public void mouseOverPlayer(Button but,int cord1,int cord2) {
         try{
             if (!but.isHover()) {
@@ -273,9 +293,27 @@ public class HelloController implements Initializable {
                     but.setStyle("-fx-background-color: #ade3f0");
                 }
             }
-        }catch (Exception erro){
+        }catch (Exception ignored){
 
+        }
+    }
+//Fim de previsualização de colocação de barcos
+    public void colocar(Button but,int posx,int posy){
+        paneArr = new Pane[][] {{pane11,pane12,pane13,pane14,pane15,pane16,pane17,pane18,pane19,pane110},
+        {pane21,pane22,pane23,pane24,pane25,pane26,pane27,pane28,pane29,pane210},
+        {pane31,pane32,pane33,pane34,pane35,pane36,pane37,pane38,pane39,pane310},
+        {pane41,pane42,pane43,pane44,pane45,pane46,pane47,pane48,pane49,pane410},
+        {pane51,pane52,pane53,pane54,pane55,pane56,pane57,pane58,pane59,pane510},
+        {pane61,pane62,pane63,pane64,pane65,pane66,pane67,pane68,pane69,pane610},
+        {pane71,pane72,pane73,pane74,pane75,pane76,pane77,pane78,pane79,pane710},
+        {pane81,pane82,pane83,pane84,pane85,pane86,pane87,pane88,pane89,pane810},
+        {pane91,pane92,pane93,pane94,pane95,pane96,pane97,pane98,pane99,pane910},
+        {pane101,pane102,pane103,pane104,pane105,pane106,pane107,pane108,pane109,pane1010}};
+
+        if (barco_tier1){
+            paneArr[posx][posy].setStyle("-fx-background-color: #87888a");
         }
 
     }
+
 }
