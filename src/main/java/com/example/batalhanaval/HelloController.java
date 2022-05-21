@@ -3,17 +3,16 @@ package com.example.batalhanaval;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -167,8 +166,8 @@ public class HelloController implements Initializable {
         }
     }
 
-
-    public boolean setFalse(boolean barco, Pane pane) {
+//Tratamento da seleção e coloraçao dos barcos
+    public boolean setFalse(Pane pane) {
         tier1Pane.setStyle("-fx-background-color: #ffffff");
         tier2Pane.setStyle("-fx-background-color: #ffffff");
         tier3Pane.setStyle("-fx-background-color: #ffffff");
@@ -180,30 +179,31 @@ public class HelloController implements Initializable {
         barco_tier4 = false;
         barco_tier5 = false;
 
-        barco = true;
+
         pane.setStyle("-fx-background-color: #ade3f0");
-        return barco;
+        return true;
     }
 
     public void setTier1() {
-        barco_tier1 = setFalse(barco_tier1, tier1Pane);
+        barco_tier1 = setFalse(tier1Pane);
     }
 
     public void setTier2() {
-        barco_tier2 = setFalse(barco_tier2, tier2Pane);
+        barco_tier2 = setFalse(tier2Pane);
     }
 
     public void setTier3() {
-        barco_tier3 = setFalse(barco_tier3, tier3Pane);
+        barco_tier3 = setFalse(tier3Pane);
     }
 
     public void setTier4() {
-        barco_tier4 = setFalse(barco_tier4, tier4Pane);
+        barco_tier4 = setFalse(tier4Pane);
     }
 
     public void setTier5() {
-        barco_tier5 = setFalse(barco_tier5, tier5Pane);
+        barco_tier5 = setFalse(tier5Pane);
     }
+//Fim do tratamento da seleção e coloraçao dos barcos
 
 
 //COLOCACAO de barcos
@@ -247,6 +247,28 @@ public class HelloController implements Initializable {
                     }
                 } else if (barco_tier5) {
                     but.setStyle("-fx-background-color: #87888a");
+                    if (rotated==0){
+                        botoesPlayer[cord1][cord2+1].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1][cord2-1].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1+1][cord2].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1+2][cord2].setStyle("-fx-background-color: #87888a");
+                    } else if (rotated==1) {
+                        botoesPlayer[cord1-1][cord2].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1+1][cord2].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1][cord2+1].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1][cord2+2].setStyle("-fx-background-color: #87888a");
+                    } else if (rotated==2) {
+                        botoesPlayer[cord1][cord2+1].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1][cord2-1].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1-1][cord2].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1-2][cord2].setStyle("-fx-background-color: #87888a");
+                    }else {
+                        botoesPlayer[cord1-1][cord2].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1+1][cord2].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1][cord2-1].setStyle("-fx-background-color: #87888a");
+                        botoesPlayer[cord1][cord2-2].setStyle("-fx-background-color: #87888a");
+                    }
+
                 } else{
                     but.setStyle("-fx-background-color: #ade3f0");
                 }
