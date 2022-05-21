@@ -3,12 +3,17 @@ package com.example.batalhanaval;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -70,19 +75,58 @@ public class HelloController implements Initializable {
         timeline = new Timeline(new KeyFrame(Duration.millis(1000), ae -> incrementTime()));
         timeline.setCycleCount(Animation.INDEFINITE);
 
-        e11.hoverProperty().addListener(new ChangeListener() {
+         botoesEnimigo = new Button[][]{{e11, e12, e13, e14, e15, e16, e17, e18, e19, e110},
+                {e21, e22, e23, e24, e25, e26, e27, e28, e29, e210},
+                {e31, e32, e33, e34, e35, e36, e37, e38, e39, e310},
+                {e41, e42, e43, e44, e45, e46, e47, e48, e49, e410},
+                {e51, e52, e53, e54, e55, e56, e57, e58, e59, e510},
+                {e61, e62, e63, e64, e65, e66, e67, e68, e69, e610},
+                {e71, e72, e73, e74, e75, e76, e77, e78, e79, e710},
+                {e81, e82, e83, e84, e85, e86, e87, e88, e89, e810},
+                {e91, e92, e93, e94, e95, e96, e97, e98, e99, e910},
+                {e101, e102, e103, e104, e105, e106, e107, e108, e109, e1010}};
+
+        botoesPlayer = new Button[][]{{y11, y12, y13, y14, y15, y16, y17, y18, y19, y110},
+                {y21, y22, y23, y24, y25, y26, y27, y28, y29, y210},
+                {y31, y32, y33, y34, y35, y36, y37, y38, y39, y310},
+                {y41, y42, y43, y44, y45, y46, y47, y48, y49, y410},
+                {y51, y52, y53, y54, y55, y56, y57, y58, y59, y510},
+                {y61, y62, y63, y64, y65, y66, y67, y68, y69, y610},
+                {y71, y72, y73, y74, y75, y76, y77, y78, y79, y710},
+                {y81, y82, y83, y84, y85, y86, y87, y88, y89, y810},
+                {y91, y92, y93, y94, y95, y96, y97, y98, y99, y910},
+                {y101, y102, y103, y104, y105, y106, y107, y108, y109, y1010}};
+
+        tier1.hoverProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object number, Object t1) {
-                mouseOver(e11);
+                mouseOver(tier1);
             }
         });
-        tier1.hoverProperty().addListener((observableValue, number, t1) -> mouseOver(tier1));
+
         tier2.hoverProperty().addListener((observableValue, number, t1) -> mouseOver(tier2));
         tier3.hoverProperty().addListener((observableValue, number, t1) -> mouseOver(tier3));
         tier4.hoverProperty().addListener((observableValue, number, t1) -> mouseOver(tier4));
         tier5.hoverProperty().addListener((observableValue, number, t1) -> mouseOver(tier5));
-    }
 
+        for (int a = 0; a < 10; a++) {
+            for (int b = 0; b < 10; b++) {
+
+                int finalA = a;
+                int finalB = b;
+                botoesEnimigo[a][b].hoverProperty().addListener((observableValue, number, t1) -> mouseOver(botoesEnimigo[finalA][finalB]));
+            }
+        }
+        for (int c = 0; c < 10; c++) {
+            for (int d = 0; d < 10; d++) {
+
+                int finalC = c;
+                int finalD = d;
+                botoesPlayer[c][d].hoverProperty().addListener((observableValue, number, t1) -> mouseOverPlayer(botoesPlayer[finalC][finalD],finalC,finalD));
+            }
+        }
+    }
+//RELOGIO INICIO
     private void incrementTime() {
         time = time.plusSeconds(1);
         timer.setText(time.format(dtf));
@@ -112,69 +156,104 @@ public class HelloController implements Initializable {
         }
     }
 
-    public void bandeira(MouseEvent butao){
-        if (e11.getText().equals("") && butao.getButton()== MouseButton.SECONDARY){
-           e11.setText("?");
-        }else{
+//BANDEIRA marcador de possivel inimigo
+    public void bandeira(MouseEvent butao) {
+        e11.setStyle("-fx-background-color: rgba(0,0,0,0)");
+        System.out.println(e11.getStyle());
+        if (e11.getText().equals("") && butao.getButton() == MouseButton.SECONDARY) {
+            e11.setText("?");
+        } else {
             e11.setText("");
         }
     }
 
-    public boolean setTrue(boolean barco,Pane pane){
-        if (barco){
-            pane.setStyle("-fx-background-color: #ffffff");
-            barco=false;
-        }else {
-            pane.setStyle("-fx-background-color: #ade3f0");
-            barco=true;
-        }
+
+    public boolean setFalse(boolean barco, Pane pane) {
+        tier1Pane.setStyle("-fx-background-color: #ffffff");
+        tier2Pane.setStyle("-fx-background-color: #ffffff");
+        tier3Pane.setStyle("-fx-background-color: #ffffff");
+        tier4Pane.setStyle("-fx-background-color: #ffffff");
+        tier5Pane.setStyle("-fx-background-color: #ffffff");
+        barco_tier1 = false;
+        barco_tier2 = false;
+        barco_tier3 = false;
+        barco_tier4 = false;
+        barco_tier5 = false;
+
+        barco = true;
+        pane.setStyle("-fx-background-color: #ade3f0");
         return barco;
     }
 
-    public void setTier1(){
-        barco_tier1=setTrue(barco_tier1,tier1Pane);
-        barco_tier2 =false;
-        barco_tier3 =false;
-        barco_tier4 =false;
-        barco_tier5 =false;
-    }
-    public void setTier2(){
-        barco_tier1 =false;
-        barco_tier2 =true;
-        barco_tier3 =false;
-        barco_tier4 =false;
-        barco_tier5 =false;
-    }
-    public void setTier3(){
-        tier3Pane.setStyle("-fx-background-color: #ade3f0");
-        barco_tier1 =false;
-        barco_tier2 =false;
-        barco_tier3 =true;
-        barco_tier4 =false;
-        barco_tier5 =false;
-    }
-    public void setTier4(){
-        tier4Pane.setStyle("-fx-background-color: #ade3f0");
-        barco_tier1 =false;
-        barco_tier2 =false;
-        barco_tier3 =false;
-        barco_tier4 =true;
-        barco_tier5 =false;
-    }
-    public void setTier5(){
-        tier5Pane.setStyle("-fx-background-color: #ade3f0");
-        barco_tier1 =false;
-        barco_tier2 =false;
-        barco_tier3 =false;
-        barco_tier4 =false;
-        barco_tier5 =true;
+    public void setTier1() {
+        barco_tier1 = setFalse(barco_tier1, tier1Pane);
     }
 
-    public void disposicao(){
-        if (barco_tier1){
+    public void setTier2() {
+        barco_tier2 = setFalse(barco_tier2, tier2Pane);
+    }
+
+    public void setTier3() {
+        barco_tier3 = setFalse(barco_tier3, tier3Pane);
+    }
+
+    public void setTier4() {
+        barco_tier4 = setFalse(barco_tier4, tier4Pane);
+    }
+
+    public void setTier5() {
+        barco_tier5 = setFalse(barco_tier5, tier5Pane);
+    }
+
+
+//COLOCACAO de barcos
+    public void mouseOverPlayer(Button but,int cord1,int cord2) {
+        try{
+            if (!but.isHover()) {
+                for (int c = 0; c < 10; c++) {
+                    for (int d = 0; d < 10; d++) {
+                        botoesPlayer[c][d].setStyle("-fx-background-color: rgba(0,0,0,0)");
+                    }
+                }
+            } else {
+                if (barco_tier1){
+                    but.setStyle("-fx-background-color: #56A5EE");
+                } else if (barco_tier2) {
+                    but.setStyle("-fx-background-color: #008000");
+                    if (rodado){
+                        botoesPlayer[cord1+1][cord2].setStyle("-fx-background-color: #008000");
+                    }else {
+                        botoesPlayer[cord1][cord2+1].setStyle("-fx-background-color: #008000");
+                    }
+                } else if (barco_tier3) {
+                    but.setStyle("-fx-background-color: #ffd700");
+                    if (rodado){
+                        botoesPlayer[cord1+1][cord2].setStyle("-fx-background-color: #ffd700");
+                        botoesPlayer[cord1-1][cord2].setStyle("-fx-background-color: #ffd700");
+                    }else{
+                        botoesPlayer[cord1][cord2+1].setStyle("-fx-background-color: #ffd700");
+                        botoesPlayer[cord1][cord2-1].setStyle("-fx-background-color: #ffd700");
+                    }
+                } else if (barco_tier4) {
+                    but.setStyle("-fx-background-color: #050f42");
+                    if (rodado){
+                        botoesPlayer[cord1+1][cord2].setStyle("-fx-background-color: #050f42");
+                        botoesPlayer[cord1+2][cord2].setStyle("-fx-background-color: #050f42");
+                        botoesPlayer[cord1+3][cord2].setStyle("-fx-background-color: #050f42");
+                    }else{
+                        botoesPlayer[cord1][cord2+1].setStyle("-fx-background-color: #050f42");
+                        botoesPlayer[cord1][cord2+2].setStyle("-fx-background-color: #050f42");
+                        botoesPlayer[cord1][cord2+3].setStyle("-fx-background-color: #050f42");
+                    }
+                } else if (barco_tier5) {
+                    but.setStyle("-fx-background-color: #87888a");
+                } else{
+                    but.setStyle("-fx-background-color: #ade3f0");
+                }
+            }
+        }catch (Exception erro){
 
         }
+
     }
-
-
 }

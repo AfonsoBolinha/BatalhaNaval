@@ -270,7 +270,7 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="H" GridPane.columnIndex="8" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="I" GridPane.columnIndex="9" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="J" GridPane.columnIndex="10" />
-                              <Button fx:id="y11" mnemonicParsing="false" onMouseClicked="#bandeira" prefHeight="10.0" prefWidth="49.0" style="-fx-background-color: rgba(0,0,0,0);" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="y11"  mnemonicParsing="false" onMouseClicked="#bandeira" prefHeight="10.0" prefWidth="49.0" style="-fx-background-color: rgba(0,0,0,0);" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Button fx:id="y21" mnemonicParsing="false" prefHeight="10.0" prefWidth="49.0" style="-fx-background-color: rgba(0,0,0,0);" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Button fx:id="y31" mnemonicParsing="false" prefHeight="10.0" prefWidth="49.0" style="-fx-background-color: rgba(0,0,0,0);" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Button fx:id="y41" mnemonicParsing="false" prefHeight="10.0" prefWidth="49.0" style="-fx-background-color: rgba(0,0,0,0);" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -384,7 +384,7 @@
       </SplitPane>
    </center>
    <right>
-      <SplitPane dividerPositions="0.09407665505226481" maxHeight="1.7976931348623157E308" orientation="VERTICAL" prefHeight="576.0" prefWidth="322.0">
+      <SplitPane dividerPositions="0.09407665505226481" maxHeight="1.7976931348623157E308" orientation="VERTICAL" prefHeight="576.0" prefWidth="311.0">
         <items>
           <AnchorPane maxHeight="52.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -410,12 +410,12 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#56a5ee" height="29.0" layoutX="255.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#56a5ee" height="29.0" layoutX="236.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
                            </children>
                         </Pane>
                         <Pane fx:id="tier2Pane" prefHeight="68.0" prefWidth="342.0">
                            <children>
-                              <Button fx:id="tier2" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="325.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                              <Button fx:id="tier2" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#setTier2" prefHeight="73.0" prefWidth="325.0" style="-fx-background-color: rgba(0,0,0,0);" />
                               <ImageView disable="true" fitHeight="56.0" fitWidth="162.0" layoutX="9.0" layoutY="2.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@barcoTier2.png" />
@@ -424,13 +424,13 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="29.0" layoutX="241.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="29.0" layoutX="269.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="29.0" layoutX="223.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="29.0" layoutX="251.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
                            </children>
                         </Pane>
                         <Pane fx:id="tier3Pane" prefHeight="68.0" prefWidth="181.0">
                            <children>
-                              <Button fx:id="tier3" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="325.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                              <Button fx:id="tier3" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#setTier3" prefHeight="74.0" prefWidth="325.0" style="-fx-background-color: rgba(0,0,0,0);" />
                               <ImageView disable="true" fitHeight="51.0" fitWidth="164.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@barcoTier3.png" />
@@ -439,14 +439,14 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="283.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="255.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="227.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="267.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="239.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="211.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
                            </children>
                         </Pane>
                         <Pane fx:id="tier4Pane" prefHeight="68.0" prefWidth="181.0">
                            <children>
-                              <Button fx:id="tier4" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="324.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                              <Button fx:id="tier4" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#setTier4" prefHeight="70.0" prefWidth="324.0" style="-fx-background-color: rgba(0,0,0,0);" />
                               <ImageView disable="true" fitHeight="49.0" fitWidth="169.0" layoutX="6.0" layoutY="10.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@barcoTier4.png" />
@@ -455,15 +455,15 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="241.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="269.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="297.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="213.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="255.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="281.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="227.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#050f42" height="29.0" layoutX="199.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" width="28.0" />
                            </children>
                         </Pane>
                         <Pane fx:id="tier5Pane" prefHeight="151.0" prefWidth="342.0">
                            <children>
-                              <Button fx:id="tier5" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="323.0" style="-fx-background-color: rgba(0,0,0,0);" />
+                              <Button fx:id="tier5" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#setTier5" prefHeight="116.0" prefWidth="323.0" style="-fx-background-color: rgba(0,0,0,0);" />
                               <ImageView disable="true" fitHeight="52.0" fitWidth="186.0" layoutX="14.0" layoutY="34.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@portaAvioes5.png" />
@@ -472,11 +472,11 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="227.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="255.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="283.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="255.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GOLD" height="29.0" layoutX="255.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#87888a" height="29.0" layoutX="213.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#87888a" height="29.0" layoutX="241.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#87888a" height="29.0" layoutX="269.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#87888a" height="29.0" layoutX="241.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#87888a" height="29.0" layoutX="241.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="28.0" />
                            </children>
                         </Pane>
                         <Button fx:id="start" mnemonicParsing="false" onAction="#start" prefHeight="55.0" prefWidth="320.0" text="Start Game">
